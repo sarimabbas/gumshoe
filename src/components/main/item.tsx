@@ -2,7 +2,7 @@ import React from "react";
 
 export const Item: React.FC = () => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md hover:shadow-lg">
+    <div className="p-4 border rounded-lg shadow-md hover:shadow-lg">
       <h2 className="mb-2 text-xl font-bold">Item Heading</h2>
       <p className="mb-4">Item Description</p>
       <img

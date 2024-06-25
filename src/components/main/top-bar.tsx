@@ -5,5 +5,5 @@ interface TopBarProps {
 }
 
 export const TopBar: React.FC<TopBarProps> = () => {
-  return <div className="p-4 bg-red-200">Hello</div>;
+  return <div className="p-4 border-b shadow-sm">Hello</div>;
 };
