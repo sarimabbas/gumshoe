@@ -1,5 +1,5 @@
 import Main from "./components/main";
-import { ModeToggle } from "./components/mode-toggle";
+import { Sidebar } from "./components/sidebar";
 import { ThemeProvider } from "./components/theme-provider";
 import {
   ResizableHandle,
@@ -15,13 +15,8 @@ function App() {
         className="h-screen max-h-screen"
       >
         {/* sidebar */}
-        <ResizablePanel
-          className="p-4"
-          minSize={20}
-          defaultSize={20}
-          maxSize={30}
-        >
-          <ModeToggle />
+        <ResizablePanel minSize={20} defaultSize={20} maxSize={30}>
+          <Sidebar />
         </ResizablePanel>
         <ResizableHandle withHandle />
         {/* browser */}

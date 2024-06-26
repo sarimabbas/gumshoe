@@ -1,8 +1,15 @@
+interface GetHandleToDirectoryOptions {
+  mode?: FileSystemPermissionMode;
+}
+
 /**
  * Get a handle to a directory using the file system access API.
  * @returns {Promise<FileSystemDirectoryHandle | null>}
  */
-export async function getHandleToDirectory(): Promise<FileSystemDirectoryHandle | null> {
+export async function getHandleToDirectory(
+  props: GetHandleToDirectoryOptions
+): Promise<FileSystemDirectoryHandle | null> {
+  const { mode = "read" } = props;
   const storageKey = "HANDLE_STORAGE_KEY";
   let handle: FileSystemDirectoryHandle | null = null;
 
@@ -30,7 +37,7 @@ export async function getHandleToDirectory(): Promise<FileSystemDirectoryHandle 
   // Verify if we have permission
   if (handle) {
     try {
-      if (await verifyPermission({ handle, mode: "read" })) {
+      if (await verifyPermission({ handle, mode })) {
         return handle;
       }
     } catch (error) {
